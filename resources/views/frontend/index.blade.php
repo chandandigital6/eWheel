@@ -4,7 +4,7 @@
 {{-- Banner Section --}}
 {{-- <div class="relative bg-gray-900">
     <!-- Banner Image -->
-    <img src="{{ asset('assets/image/banner.jpg') }}" alt="Green Mobility Banner" class="w-full h-[500px] object-cover">
+    <img src="{{ asset('asset/image/banner.jpg') }}" alt="Green Mobility Banner" class="w-full h-[500px] object-cover">
 
     <!-- Overlay -->
     <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
@@ -25,7 +25,7 @@
   <div id="slider" class="relative flex transition-transform duration-700 ease-in-out">
       <!-- Slide 1 -->
       <div class="w-full flex-shrink-0">
-          <img src="{{ asset('assets/image/banner.jpg') }}" alt="Green Mobility Banner" class="w-full h-[500px] object-cover">
+          <img src="{{ asset('asset/image/banner.jpg') }}" alt="Green Mobility Banner" class="w-full h-[500px] object-cover">
           <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div class="text-center text-white px-6">
                   <h1 class="text-4xl font-bold mb-4">Discover our range of electric Wheels</h1>
@@ -42,7 +42,7 @@
       </div>
       <!-- Slide 2 -->
       <div class="w-full flex-shrink-0">
-          <img src="{{ asset('assets/image/banner1.jpeg') }}" alt="Eco-Friendly Transportation" class="w-full h-[500px] object-cover">
+          <img src="{{ asset('asset/image/banner1.jpeg') }}" alt="Eco-Friendly Transportation" class="w-full h-[500px] object-cover">
           {{-- <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div class="text-center text-white px-6">
                   <h1 class="text-4xl font-bold mb-4">Eco-Friendly Transportation!</h1>
@@ -57,7 +57,7 @@
       </div>
       <!-- Slide 3 -->
       <div class="w-full flex-shrink-0">
-          <img src="{{ asset('assets/image/banner3.jpeg') }}" alt="Ride the Future" class="w-full h-[500px] object-cover">
+          <img src="{{ asset('asset/image/banner3.jpeg') }}" alt="Ride the Future" class="w-full h-[500px] object-cover">
           {{-- <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div class="text-center text-white px-6">
                   <h1 class="text-4xl font-bold mb-4">Ride the Future!</h1>
@@ -146,7 +146,7 @@
             ['title' => 'Retailers', 'image' => 'retail.png']
         ] as $item)
         <div class="bg-gray-100 lg:p-6 p-1 text-center rounded-lg hover:shadow-lg transition">
-            <img src="{{ asset('assets/image/' . $item['image']) }}" alt="{{ $item['title'] }}" class="w-20 h-20 mx-auto mb-4">
+            <img src="{{ asset('asset/image/' . $item['image']) }}" alt="{{ $item['title'] }}" class="w-20 h-20 mx-auto mb-4">
             <a href="{{route('accessories')}}" class="text-sm font-medium text-gray-700 inline-flex items-center hover:text-[#75CDD8] transition">
                 {{ $item['title'] }} <i class="ri-arrow-right-line ml-1"></i>
             </a>
@@ -160,7 +160,7 @@
     <!-- Header Section -->
     <div class="text-center mb-16 ">
         <div class="flex items-center justify-center mb-4">
-            <img src="{{ asset('assets/image/e-bike.png') }}" alt="E-Bike" class="w-20 h-20 rounded-full mr-4">
+            <img src="{{ asset('asset/image/e-bike.png') }}" alt="E-Bike" class="w-20 h-20 rounded-full mr-4">
             <h1 class="text-2xl lg:text-3xl font-extrabold text-black">E-Scooter | E-Wheels</h1>
         </div>
         <p class="text-lg lg:text-xl text-gray-700 mt-4 leading-relaxed">
@@ -173,7 +173,7 @@
         <!-- Product Card -->
         <div class="bg-white md:p-6 m-4 p-4 rounded-2xl shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
             <div class="relative">
-                <img src="{{ asset('assets/image/eWheels.jpg') }}" alt="E-Scooter Model" class="w-full h-52 object-cover object-center rounded-lg">
+                <img src="{{ asset('asset/image/eWheels.jpg') }}" alt="E-Scooter Model" class="w-full h-52 object-cover object-center rounded-lg">
                 <div class="absolute top-4 right-4 bg-white text-xs font-bold px-3 py-2 rounded-full border border-gray-300">
                     NEW
                 </div>
@@ -199,7 +199,7 @@
           <!-- Product Card -->
           <div class="bg-white md:p-6 m-4 p-4 rounded-2xl shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
             <div class="relative">
-                <img src="{{ asset('assets/image/eWheels.jpg') }}" alt="E-Scooter Model" class="w-full h-52 object-cover object-center rounded-lg">
+                <img src="{{ asset('asset/image/eWheels.jpg') }}" alt="E-Scooter Model" class="w-full h-52 object-cover object-center rounded-lg">
                 <div class="absolute top-4 right-4 bg-white text-xs font-bold px-3 py-2 rounded-full border border-gray-300">
                     NEW
                 </div>
@@ -224,7 +224,7 @@
           <!-- Product Card -->
           <div class="bg-white md:p-6 m-4 p-4 rounded-2xl shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
             <div class="relative">
-                <img src="{{ asset('assets/image/eWheels.jpg') }}" alt="E-Scooter Model" class="w-full h-52 object-cover object-center rounded-lg">
+                <img src="{{ asset('asset/image/eWheels.jpg') }}" alt="E-Scooter Model" class="w-full h-52 object-cover object-center rounded-lg">
                 <div class="absolute top-4 right-4 bg-white text-xs font-bold px-3 py-2 rounded-full border border-gray-300">
                     NEW
                 </div>
@@ -249,7 +249,7 @@
           <!-- Product Card -->
           <div class="bg-white md:p-6 m-4 p-4 rounded-2xl shadow-lg hover:shadow-xl transition-transform transform hover:scale-105">
             <div class="relative">
-                <img src="{{ asset('assets/image/eWheels.jpg') }}" alt="E-Scooter Model" class="w-full h-52 object-cover object-center rounded-lg">
+                <img src="{{ asset('asset/image/eWheels.jpg') }}" alt="E-Scooter Model" class="w-full h-52 object-cover object-center rounded-lg">
                 <div class="absolute top-4 right-4 bg-white text-xs font-bold px-3 py-2 rounded-full border border-gray-300">
                     NEW
                 </div>
@@ -290,7 +290,7 @@
 
 {{-- Made for Nordic conditions --}}
 <div class="relative mt-8">
-    <img src="{{ asset('assets/image/background') }}" 
+    <img src="{{ asset('asset/image/background') }}" 
          alt="Momas Electric Bikes Background" 
          class="w-full h-[60vh] object-cover">
     <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center px-4 py-6">
@@ -310,7 +310,7 @@
 <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8 p-6 lg:p-12 bg-gray-50">
     <!-- Image Section -->
     <div class="w-full lg:w-1/2 h-full">
-        <img src="{{ asset('assets/image/who') }}" 
+        <img src="{{ asset('asset/image/who') }}" 
              alt="Who Are We - Image" 
              class="w-full h-64 lg:h-96 rounded-lg shadow-md object-cover">
     </div>
@@ -348,7 +348,7 @@
             {{-- <svg class="w-12 h-12 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h11M9 21V3m12 8h-6m6 8h-6" />
             </svg> --}}
-            <img src="{{asset('assets/image/service1.png')}}" alt="" class="h-20 w-20">
+            <img src="{{asset('asset/image/service1.png')}}" alt="" class="h-20 w-20">
           </div>
           <h3 class="text-xl font-semibold text-gray-800">Service Title</h3>
           <p class="text-gray-600 mt-2">Brief description of the service offered, highlighting key benefits.</p>
@@ -360,7 +360,7 @@
             {{-- <svg class="w-12 h-12 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18M9 21H3V10h6m12 11v-6a3 3 0 00-3-3H3m15-9l3 3m-3-3l-3 3" />
             </svg> --}}
-            <img src="{{asset('assets/image/service2.png')}}" alt="" class="h-20 w-20">
+            <img src="{{asset('asset/image/service2.png')}}" alt="" class="h-20 w-20">
           </div>
           <h3 class="text-xl font-semibold text-gray-800">Service Title</h3>
           <p class="text-gray-600 mt-2">Brief description of the service offered, highlighting key benefits.</p>
@@ -372,7 +372,7 @@
             {{-- <svg class="w-12 h-12 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v5m6-5v5m-9-6h12m-6-4V4m0 0l3 3m-3-3l-3 3" />
             </svg> --}}
-            <img src="{{asset('assets/image/service3.png')}}" alt="" class="h2- w-20">
+            <img src="{{asset('asset/image/service3.png')}}" alt="" class="h2- w-20">
           </div>
           <h3 class="text-xl font-semibold text-gray-800">Service Title</h3>
           <p class="text-gray-600 mt-2">Brief description of the service offered, highlighting key benefits.</p>
@@ -384,7 +384,7 @@
             {{-- <svg class="w-12 h-12 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4m0 0c2.21 0 4-1.79 4-4s-1.79-4-4-4m0 0V4m0 16v-4m0-12L8 8m4-4l4 4" />
             </svg> --}}
-            <img src="{{asset('assets/image/service4.png')}}" alt="" class="h-20 w-20">
+            <img src="{{asset('asset/image/service4.png')}}" alt="" class="h-20 w-20">
           </div>
           <h3 class="text-xl font-semibold text-gray-800">Service Title</h3>
           <p class="text-gray-600 mt-2">Brief description of the service offered, highlighting key benefits.</p>
