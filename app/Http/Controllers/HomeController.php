@@ -2,34 +2,51 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\About;
-use App\Models\Banner;
-use App\Models\MissionVision;
-use App\Models\Product;
-use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    
     public function index()
     {
-        $banners=Banner::all();
-        $abouts=About::all();
-        // dd($abouts);
-        $testimonials=Testimonial::all();
-        $missionViosions=MissionVision::all();
-        $products=Product::all();
-        return view('frontend.index',compact('banners','abouts','testimonials','missionViosions','products'));
+        return view('frontend.index');
     }
 
-    public function detail( Product $product)
+   
+    public function e_bike()
     {
-        // dd($product);
-        return view('frontend.detail',compact('product'));
+        return view('frontend.e_bike');
     }
 
-    public function thankyou(){
-        return view('frontend.thankyou');
+    public function e_scooter()
+    {
+        return view('frontend.e_scooter');
+    }
+    public function e_unicycle()
+    {
+        return view('frontend.e_unicycle');
     }
 
+    public function e_wheelchair()
+    {
+        return view('frontend.e_wheelchair');
+    }
+
+    public function accessories()
+    {
+        return view('frontend.accessories');
+    }
+    public function retail()
+    {
+        return view('frontend.retail');
+    }
+    public function contact()
+    {
+        return view('frontend.contact');
+    }
+    public function productdetail()
+    {
+        return view('frontend.productdetail');
+    }
+  
 }
