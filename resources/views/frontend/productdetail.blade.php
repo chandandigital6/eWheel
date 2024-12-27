@@ -190,6 +190,11 @@
                                     required />
                             </div>
 
+                                    <!-- Message -->
+             <div class="mb-4">
+                <label for="text" class="block text-sm font-medium text-gray-700">Message</label>
+                <input type="message" id="text" name="text" placeholder="message" required class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+              </div>
                             <!-- Submit Button -->
                             <button type="submit"
                                 class="w-full px-6 py-3 border border-[#75CDD8] text-[#75CDD8] font-medium rounded-md shadow-md  transition">

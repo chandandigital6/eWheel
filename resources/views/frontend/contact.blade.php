@@ -13,30 +13,54 @@
         <div class="bg-white p-8 rounded-lg shadow-md">
           <h3 class="text-2xl font-semibold text-gray-900 mb-6">Send Us a Message</h3>
           <form action="#" method="POST">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div class="flex flex-col">
-                <label for="first-name" class="text-gray-700">First Name</label>
-                <input type="text" id="first-name" name="first-name" class="mt-2 p-3 border border-gray-300 rounded-lg" required>
-              </div>
-              <div class="flex flex-col">
-                <label for="last-name" class="text-gray-700">Last Name</label>
-                <input type="text" id="last-name" name="last-name" class="mt-2 p-3 border border-gray-300 rounded-lg" required>
-              </div>
+            <!-- Full Name -->
+            <div class="mb-4">
+              <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name</label>
+              <input type="text" id="fullName" name="fullName" required class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
             </div>
-  
-            <div class="flex flex-col mt-6">
-              <label for="email" class="text-gray-700">Email Address</label>
-              <input type="email" id="email" name="email" class="mt-2 p-3 border border-gray-300 rounded-lg" required>
+      
+            <!-- Email Address -->
+            <div class="mb-4">
+              <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+              <input type="email" id="email" name="email" required class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
             </div>
-  
-            <div class="flex flex-col mt-6">
-              <label for="message" class="text-gray-700">Your Message</label>
-              <textarea id="message" name="message" rows="4" class="mt-2 p-3 border border-gray-300 rounded-lg" required></textarea>
+      
+            <!-- Phone Number -->
+            <div class="mb-4">
+              <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
             </div>
-  
-            <button type="submit" class="mt-6 w-full py-3 px-6 border border-blue-600 text-black font-semibold rounded-lg hover:border-blue-700 transition-all">
-              Send Message
-            </button>
+      
+            <!-- Select Model -->
+            <div class="mb-4">
+              <label for="model" class="block text-sm font-medium text-gray-700">Select Model</label>
+              <select id="model" name="model" required class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                <option value="" disabled selected>Select a product</option>
+                <option value="model1">Model 1</option>
+                <option value="model2">Model 2</option>
+                <option value="model3">Model 3</option>
+              </select>
+            </div>
+            
+            
+            <!-- Booking Date -->
+            <div class="mb-4">
+              <label for="bookingDate" class="block text-sm font-medium text-gray-700">Booking Date</label>
+              <input type="date" id="bookingDate" name="bookingDate" required class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+      
+             <!-- Message -->
+             <div class="mb-4">
+              <label for="text" class="block text-sm font-medium text-gray-700">Message</label>
+              <input type="message" id="text" name="text" placeholder="message" required class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex justify-center">
+              <button type="submit" class="bg-[#75CDD8] text-white py-2 px-4 rounded-md hover:bg-[#75CDD8] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                Submit Booking
+              </button>
+            </div>
           </form>
         </div>
   
