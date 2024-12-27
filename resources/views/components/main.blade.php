@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>E_Wheels</title>
+    <title>eberries</title>
+    <link rel="icon" href="{{asset('asset/image/eWheels-logo-opt.png')}}" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     {{-- icons --}}
     <link
