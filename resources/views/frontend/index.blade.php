@@ -86,14 +86,14 @@
 {{-- Explore Section --}}
 <div class="container mx-auto lg:px-24 px-4 py-12 bg-white">
     @forelse ($productCategoryTitle as $title)
-
-    @empty
-
-    @endforelse
     <h1 class="text-center text-3xl font-bold mb-2">{{ $title->title }}</h1>
     <p class="text-center text-lg text-gray-600 mb-10">
         {{ $title->sub_title }}
     </p>
+    @empty
+  no title 
+    @endforelse
+
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         @foreach ($productCategories as $category)
