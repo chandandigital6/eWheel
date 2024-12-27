@@ -21,22 +21,24 @@ class ProductRequest extends FormRequest
      */
     public function rules(): array
     {
+        $productId = $this->route('product');
         return [
-            'title' => 'nullable|string|max:255',
-            'sub_title' => 'nullable|string|max:255',
-            'sku_number' => 'nullable|string|max:255',
-            'short_description' => 'nullable|string',
-            'long_description' => 'nullable|string',
-            'qty' => 'nullable|integer|min:0',
-            'price' => 'nullable|numeric|min:0',
-            'category_name' => 'nullable|string|max:255',
-            'f_1' => 'nullable|string|max:255',
-            'f_2' => 'nullable|string|max:255',
-            'f_3' => 'nullable|string|max:255',
-            'f_4' => 'nullable|string|max:255',
-            'f_5' => 'nullable|string|max:255',
-            'f_6' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'title' => 'required|string|max:255',
+        'sub_title' => 'nullable|string|max:255',
+        'sku_number' => 'required|string|max:255|unique:products,sku_number,' . $productId,
+        'short_description' => 'nullable|string|max:1000',
+        'long_description' => 'nullable|string',
+        'qty' => 'nullable|integer|min:0',
+        'price' => 'nullable|numeric|min:0',
+        'accessories' => 'nullable|string',
+        'f_1' => 'nullable|string|max:255',
+        'f_2' => 'nullable|string|max:255',
+        'f_3' => 'nullable|string|max:255',
+        'f_4' => 'nullable|string|max:255',
+        'f_5' => 'nullable|string|max:255',
+        'f_6' => 'nullable|string|max:255',
+        'image.*' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        'product_category_id' => 'nullable|exists:product_categories,id',
         ];
     }
 }

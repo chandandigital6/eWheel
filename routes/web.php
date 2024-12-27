@@ -11,8 +11,11 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MissionVisionController;
+use App\Http\Controllers\ProductCategoryController;
+use App\Http\Controllers\ProductCategoryTitleController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Artisan;
 
@@ -26,14 +29,21 @@ use Illuminate\Support\Facades\Artisan;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', [HomeController::class, 'index'])->name('frontend.index');
-Route::get('/detail/{product}', [HomeController::class, 'detail'])->name('frontend.detail');
+// / Define routes using the HomeController
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/ebike', [HomeController::class, 'e_bike'])->name('ebike');
+Route::get('/e_scooter', [HomeController::class, 'e_scooter'])->name('e_scooter');
+Route::get('/e_unicycle',[HomeController::class,'e_unicycle'])->name('unicycle');
+Route::get('/e_wheelchair',[HomeController::class,'e_wheelchair'])->name('e_wheelchair');
+Route::get('/accessories',[HomeController::class, 'accessories'])->name('accessories');
+Route::get('/retail', [HomeController::class, 'retail'])->name('retail');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/productdetail/{product}', [HomeController::class, 'productdetail'])->name('productdetail');
+// Route::get('/', [HomeController::class, 'index'])->name('frontend.index');
+// Route::get('/detail/{product}', [HomeController::class, 'detail'])->name('frontend.detail');
 Route::get('/thankyou', [HomeController::class, 'thankyou'])->name('thankyou');
 
-//Route::get('',[HomeController::class,'blogDetails'])->name('blog-details');
-Route::get('/teacher', [HomeController::class, 'teacher'])->name('teacher');
-Route::get('/courseDetails/{courses}', [HomeController::class, 'coursesdetails'])->name('courseDetails-courses');
+
 
 
 Route::get('login-form', [AuthController::class, 'index'])->name('login-form');
@@ -49,7 +59,7 @@ Route::post('store-password', [AuthController::class, 'store_password'])->name('
 
 Route::post('appointment/store', [AppointmentController::class, 'store'])->name('appointment.store');
 Route::get('product/qr/{product}', [ProductController::class, 'showQr'])->name('product.qr');
-
+Route::get('/categories/{id}', [HomeController::class, 'show'])->name('category.details');
 Route::get('/change-password', [AuthController::class, 'showChangePasswordForm'])->name('auth.change-password-form');
 Route::post('/update-password', [AuthController::class, 'updatePassword'])->name('auth.update-password');
 
@@ -77,6 +87,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('about/update/{about}', [AboutController::class, 'update'])->name('about.update');
 
 
+
+    //contact
+
+
+    Route::get('contact/index', [ContactController::class, 'index'])->name('contact.index');
+    Route::get('contact/create', [ContactController::class, 'create'])->name('contact.create');
+    Route::post('contact/store', [ContactController::class, 'store'])->name('contact.store');
+    Route::get('contact/edit/{contact}', [ContactController::class, 'edit'])->name('contact.edit');
+    Route::get('contact/delete/{contact}', [ContactController::class, 'delete'])->name('contact.delete');
+    Route::get('contact/duplicate/{contact}', [ContactController::class, 'duplicate'])->name('contact.duplicate');
+    Route::post('contact/update/{contact}', [ContactController::class, 'update'])->name('contact.update');
+
+
     //missionVision
 
 
@@ -97,6 +120,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('appointment/update/{appointment}', [AppointmentController::class, 'update'])->name('appointment.update');
     Route::get('appointment/delete/{appointment}', [AppointmentController::class, 'delete'])->name('appointment.delete');
     Route::get('appointment/duplicate/{appointment}', [AppointmentController::class, 'duplicate'])->name('appointment.duplicate');
+
+
+     //product
+     Route::get('productCategory/index', [ProductCategoryController::class, 'index'])->name('productCategory.index');
+     Route::get('productCategory/create', [ProductCategoryController::class, 'create'])->name('productCategory.create');
+     Route::post('productCategory/store', [ProductCategoryController::class, 'store'])->name('productCategory.store');
+     Route::get('productCategory/edit/{productCategory}', [ProductCategoryController::class, 'edit'])->name('productCategory.edit');
+     Route::post('productCategory/update/{productCategory}', [ProductCategoryController::class, 'update'])->name('productCategory.update');
+     Route::get('productCategory/delete/{productCategory}', [ProductCategoryController::class, 'delete'])->name('productCategory.delete');
+     Route::get('productCategory/duplicate/{productCategory}', [ProductCategoryController::class, 'duplicate'])->name('productCategory.duplicate');
 
 
 
@@ -148,8 +181,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     //    //counter
 
-
-
     Route::get('seo/index', [SeoController::class, 'index'])->name('seo.index');
     Route::get('seo/create', [SeoController::class, 'create'])->name('seo.create');
     Route::post('seo/store', [SeoController::class, 'store'])->name('seo.store');
@@ -157,20 +188,22 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('seo/update/{seo}', [SeoController::class, 'update'])->name('seo.update');
     Route::get('seo/delete/{seo}', [SeoController::class, 'delete'])->name('seo.delete');
     Route::get('seo/duplicate/{seo}', [SeoController::class, 'duplicate'])->name('seo.duplicate');
+
+
+    Route::get('productCategoryTitle/index', action: [ProductCategoryTitleController::class, 'index'])->name('productCategoryTitle.index');
+    Route::get('productCategoryTitle/create', [ProductCategoryTitleController::class, 'create'])->name('productCategoryTitle.create');
+    Route::post('productCategoryTitle/store', [ProductCategoryTitleController::class, 'store'])->name('productCategoryTitle.store');
+    Route::get('productCategoryTitle/edit/{productCategoryTitle}', [ProductCategoryTitleController::class, 'edit'])->name('productCategoryTitle.edit');
+    Route::post('productCategoryTitle/update/{productCategoryTitle}', [ProductCategoryTitleController::class, 'update'])->name('productCategoryTitle.update');
+    Route::get('productCategoryTitle/delete/{productCategoryTitle}', [ProductCategoryTitleController::class, 'delete'])->name('productCategoryTitle.delete');
+    Route::get('productCategoryTitle/duplicate/{productCategoryTitle}', [ProductCategoryTitleController::class, 'duplicate'])->name('productCategoryTitle.duplicate');
+
+
 });
 
 
 
-// / Define routes using the HomeController
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/ebike', [HomeController::class, 'e_bike'])->name('ebike');
-Route::get('/e_scooter', [HomeController::class, 'e_scooter'])->name('e_scooter');
-Route::get('/e_unicycle',[HomeController::class,'e_unicycle'])->name('unicycle');
-Route::get('/e_wheelchair',[HomeController::class,'e_wheelchair'])->name('e_wheelchair');
-Route::get('/accessories',[HomeController::class, 'accessories'])->name('accessories');
-Route::get('/retail', [HomeController::class, 'retail'])->name('retail');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-Route::get('/productdetail', [HomeController::class, 'productdetail'])->name('productdetail');
+
 
 
 Route::get('/foo', function () {

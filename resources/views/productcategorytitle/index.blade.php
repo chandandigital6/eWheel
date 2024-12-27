@@ -26,8 +26,8 @@
                 <div class="card">
                     <div class="card-header bg-primary text-white">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h1>Product Title</h1>
-                            <a href="{{ route('missionVision.create') }}" class="btn btn-light">Create Product Title</a>
+                            <h1>productCategoryTitle</h1>
+                            <a href="{{ route('productCategoryTitle.create') }}" class="btn btn-light">Create productCategoryTitle</a>
                         </div>
                     </div>
 
@@ -47,30 +47,36 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>
-                                    <th>subTitle</th>
-                                    {{-- <th>visionTititle</th>
-                                    <th>VisionDescription</th>
-                                    <th>mission</th>
-                                    <th>MissionDescription</th> --}}
+                                    <th>Sub title</th>
+                                    {{-- <th>Image</th> --}}
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse ($missionVisionData as $missionVision)
+                                @forelse ($productCategoryTitleData as $productCategoryTitle)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $missionVision->title }}</td>
-                                        <td>{{$missionVision->sub_title}}</td>
-                                        {{-- <td>{{$missionVision->vision}}</td>
-                                        <td>{!! $missionVision->vision_description !!}</td>
-                                        <td>{{$missionVision->mission}}</td>
-                                        <td>{!! $missionVision->mission_description !!}</td> --}}
-                                        {{-- <td><img src="{{ asset('storage/'.$missionVision->image) }}" alt="{{ $missionVision->title }}" style="max-width: 100px;"></td> --}}
+                                        <td>{{ $productCategoryTitle->title }}</td>
+                                        <td>{{$productCategoryTitle->sub_title}}</td>
+                                        {{-- <td><img src="{{ asset('storage/'.$productCategoryTitle->image) }}" alt="{{ $productCategoryTitle->title }}" style="max-width: 100px;"></td> --}}
+
+{{--                                        <td>--}}
+{{--                                            @if($productCategoryTitle->status)--}}
+{{--                                                <svg class="text-success-500 h-6 w-6 text-success" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">--}}
+{{--                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>--}}
+{{--                                                </svg>--}}
+{{--                                            @else--}}
+{{--                                                <svg class="text-danger h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">--}}
+{{--                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>--}}
+{{--                                                </svg>--}}
+{{--                                            @endif--}}
+{{--                                        </td>--}}
+{{--                                                                                <td><img src="{{ asset('storage/'.$productCategoryTitle->image) }}" alt="{{ $productCategoryTitle->title }}" style="max-width: 100px;"></td>--}}
                                         <td>
-                                            <a href="{{ route('missionVision.edit', $missionVision->id) }}" class="btn btn-primary">Edit</a>
-                                            <a href="{{ route('missionVision.delete', $missionVision->id) }}" class="btn btn-danger">Delete</a>
+                                            <a href="{{ route('productCategoryTitle.edit', $productCategoryTitle->id) }}" class="btn btn-primary">Edit</a>
+                                            <a href="{{ route('productCategoryTitle.delete', $productCategoryTitle->id) }}" class="btn btn-danger">Delete</a>
                                             <!-- Add delete button if needed -->
-                                            <a href="{{ route('missionVision.duplicate', $missionVision->id) }}" class="btn btn-warning">Duplicate</a>
+                                            {{-- <a href="{{ route('productCategoryTitle.duplicate', $productCategoryTitle->id) }}" class="btn btn-warning">Duplicate</a> --}}
 
                                         </td>
                                     </tr>
@@ -86,7 +92,7 @@
 
                     <div class="card-footer">
                         <!-- Pagination links can be added here if needed -->
-                        {{ $missionVisionData->links() }}
+                        {{ $productCategoryTitleData->links() }}
                     </div>
                 </div>
             </div>

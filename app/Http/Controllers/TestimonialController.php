@@ -13,7 +13,7 @@ class TestimonialController extends Controller
         $testimonial = Testimonial::query();
 
         if (!empty($keyword)) {
-            $testimonial->where('title', 'like', "%$keyword%");
+            $testimonial->where('name', 'like', "%$keyword%");
         }
         $testimonialData = $testimonial->paginate(5);
 

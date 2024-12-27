@@ -24,10 +24,10 @@ class MissionVisionRequest extends FormRequest
         return [
             'title' => 'nullable|string|max:255',
             'sub_title' => 'nullable|string|max:255',
-            'vision' => 'nullable|string|max:255',
-            'vision_description' => 'nullable|string',
-            'mission' => 'nullable|string|max:255',
-            'mission_description' => 'nullable|string',
+            // 'vision' => 'nullable|string|max:255',
+            // 'vision_description' => 'nullable|string',
+            // 'mission' => 'nullable|string|max:255',
+            // 'mission_description' => 'nullable|string',
         ];
     }
 }

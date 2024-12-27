@@ -26,8 +26,8 @@
                 <div class="card">
                     <div class="card-header bg-primary text-white">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h1>Testimonials</h1>
-                            <a href="{{ route('testimonial.create') }}" class="btn btn-light">Create testimonials</a>
+                            <h1>Feature</h1>
+                            <a href="{{ route('testimonial.create') }}" class="btn btn-light">Create Feature</a>
                         </div>
                     </div>
 
@@ -80,6 +80,7 @@
 
                     <div class="card-footer">
                         <!-- Pagination links can be added here if needed -->
+                        {{ $testimonialData->links() }}
                     </div>
                 </div>
             </div>

@@ -7,16 +7,34 @@
     <div class="container mx-auto px-4 py-2 flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center">
-        <a href="{{route('home')}}"><img src="{{asset('assets/image/eWheels-logo-opt.png')}}" alt="eWheels Logo" class="h-10 w-auto rounded text-white" /></a>
+        <a href="{{route('home')}}"><img src="{{asset('asset/image/eWheels-logo-opt.png')}}" alt="eWheels Logo" class="h-10 w-auto rounded text-white" /></a>
         {{-- <span class="ml-3 text-xl font-semibold text-gray-800">eWheels</span> --}}
       </div>
-  
+    @php
+         $productCategories =App\Models\ProductCategory::all();
+    @endphp
       <!-- Navigation Links -->
+      {{-- <ul class="hidden md:flex space-x-6 text-black"> --}}
+
+
+        <!-- Other Static Links -->
+        {{-- <li><a href="{{route('e_scooter')}}" class="hover:text-[#75CDD8]">e-scooter</a></li>
+        <li><a href="{{route('unicycle')}}" class="hover:text-[#75CDD8]">e-unicycle</a></li>
+        <li><a href="{{route('ebike')}}" class="hover:text-[#75CDD8]">e-bike</a></li> --}}
+    {{-- </ul> --}}
+
       <ul class="hidden md:flex space-x-6 text-black">
-        <li><a href="{{route('e_scooter')}}" class="hover:text-[#75CDD8] ">e-scooter</a></li>
+        @foreach ($productCategories as $category)
+        <li>
+            <a href="{{ route('category.details', $category->id) }}" class="hover:text-[#75CDD8]">
+                {{ $category->category_name }}
+            </a>
+        </li>
+    @endforeach
+        {{-- <li><a href="{{route('e_scooter')}}" class="hover:text-[#75CDD8] ">e-scooter</a></li>
         <li><a href="{{route('unicycle')}}" class="hover:text-[#75CDD8] ">e-unicycle</a></li>
-        <li><a href="{{route('ebike')}}" class="hover:text-[#75CDD8] ">e-bike</a></li>
-        <div class="relative dropdown">
+        <li><a href="{{route('ebike')}}" class="hover:text-[#75CDD8] ">e-bike</a></li> --}}
+        {{-- <div class="relative dropdown">
             <button tabindex="0" role="button" class="btn flex items-center space-x-1">
                 <span><a href="{{route('e_wheelchair')}}">e-wheelchairs</a></span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -27,8 +45,8 @@
               <li><a href="{{route('e_wheelchair')}}">Robo e-Wheelschair</a></li>
               <li><a href="{{route('e_wheelchair')}}">Robo e-wheelschair2</a></li>
             </ul>
-        </div>
-        <div class="relative dropdown">
+        </div> --}}
+        {{-- <div class="relative dropdown">
             <button tabindex="0" role="button" class="btn flex items-center space-x-1">
                 <span><a href="{{route('accessories')}}">Accessories</a></span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -39,11 +57,11 @@
               <li><a href="{{route('unicycle')}}">e-unicycle</a></li>
               <li><a href="{{route('ebike')}}">e-bike</a></li>
             </ul>
-        </div>
+        </div> --}}
         <li><a href="{{route('retail')}}" class="hover:text-[#75CDD8]">Retail</a></li>
         <li><a href="{{route('contact')}}" class="hover:text-[#75CDD8] ">Contact</a></li>
       </ul>
-  
+
       <!-- Mobile Menu Button -->
       <button class="md:hidden text-gray-600 focus:outline-none" id="menu-button">
         <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -51,21 +69,28 @@
         </svg>
       </button>
     </div>
-  
+
     <!-- Mobile Menu -->
     <div class="md:hidden hidden" id="mobile-menu">
       <ul class="space-y-4 px-4 py-2 bg-gray-100">
-        <li><a href="{{route('e_scooter')}}" class="block text-gray-800 hover:text-[#75CDD8] ">e-scooter</a></li>
+        @foreach ($productCategories as $category)
+        <li>
+            <a href="{{ route('category.details', $category->id) }}" class="block text-gray-800 hover:text-[#75CDD8]">
+                {{ $category->category_name }}
+            </a>
+        </li>
+    @endforeach
+        {{-- <li><a href="{{route('e_scooter')}}" class="block text-gray-800 hover:text-[#75CDD8] ">e-scooter</a></li>
         <li><a href="{{route('unicycle')}}" class="block text-gray-800 hover:text-[#75CDD8] ">e-unicycle</a></li>
         <li><a href="{{route('ebike')}}" class="block text-gray-800 hover:text-[#75CDD8] ">e-bike</a></li>
         <li><a href="{{route('e_wheelchair')}}" class="block text-gray-800 hover:text-[#75CDD8] ">e-wheelchair</a></li>
-        <li><a href="{{route('accessories')}}" class="block text-gray-800 hover:text-[#75CDD8] ">Accessories</a></li>
+        <li><a href="{{route('accessories')}}" class="block text-gray-800 hover:text-[#75CDD8] ">Accessories</a></li> --}}
         <li><a href="{{route('retail')}}" class="block text-gray-800 hover:text-[#75CDD8] ">Retail</a></li>
         <li><a href="{{route('contact')}}" class="block text-gray-800 hover:text-[#75CDD8] ">Contact</a></li>
       </ul>
     </div>
   </nav>
-  
+
   <script>
     // Toggle Mobile Menu
     document.getElementById('menu-button').addEventListener('click', function () {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -12,24 +13,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class ProductController extends Controller
 {
 
-    public function showQr($id)
-{
-    $product = Product::findOrFail($id);
 
-    // Prepare product details as a string
-    $productDetails = "Product Title: {$product->title}\n"
-        . "Subtitle: {$product->sub_title}\n"
-        . "SKU: {$product->sku_number}\n"
-        . "Price: {$product->price}\n"
-        . "Quantity: {$product->qty}\n"
-        . "Description: {$product->short_description}";
-
-    // Generate and save the QR code as an image
-    $imagePath = "qr-codes/product-123.png";
-    Storage::disk('public')->put($imagePath, QrCode::format('png')->size(200)->generate('Product details go here'));
-
-    return back()->with('success', 'QR Code generated successfully!');
-}
     public function index(Request $request)
     {
         $keyword = $request->input('keyword');
@@ -45,43 +29,78 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('product.create');
+        $categories = ProductCategory::all();
+        return view('product.create',compact('categories'));
     }
 
     public function store(ProductRequest $request)
-    {
-        //        dd($request);
+{
+    // dd($request->all());
+    // Validate the request using the ProductRequest
+    $validated = $request->validated();
 
+    $data = $validated; // Start with validated data
+    $imagePaths = [];   // Initialize the array to hold image paths
+
+    // Handle image upload
+    if ($request->hasFile('image')) {
+        foreach ($request->file('image') as $image) {
+            $imagePaths[] = $image->store('products', 'public'); // Store images in the 'products' folder
+        }
+        $data['image'] = implode(',', $imagePaths); // Convert array to a comma-separated string
+    }
+
+    // Save the product to the database
+    Product::create($data);
+
+    // Redirect to the product index page with success message
+    return redirect()->route('product.index')->with('success', 'Product created successfully.');
+}
+
+
+    public function edit( $product)
+    {
+        $product = Product::with('category')->findOrFail($product);
+        $categories = ProductCategory::all();
+        return view('product.create', compact('product','categories'));
+    }
+
+    public function update(ProductRequest $request, $id)
+    {
+        // Find the product by ID
+        $product = Product::findOrFail($id);
+
+        // Validate incoming request
         $validated = $request->validated();
 
-        // Handle image upload
-        if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('products', 'public');
-        }
-        Product::create($validated);
+        // Prepare data for updating
+        $data = $validated;
 
-        return redirect()->route('product.index')->with('success', 'product  created successfully.');
-    }
+        // Handle images
+        $existingImages = $product->image ? explode(',', $product->image) : [];
 
-    public function edit(Product $product)
-    {
+        // Process new images if provided
+        if ($request->hasFile('images')) {
+            $newImages = [];
+            foreach ($request->file('images') as $image) {
+                $newImages[] = $image->store('products', 'public'); // Store new images
+            }
 
-        return view('product.create', compact('product'));
-    }
-
-    public function update(Product $product, ProductRequest $request)
-    {
-        $productData = $request->all();
-
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/product');
-            $productData['image'] = str_replace('public/', '', $imagePath);
+            // Merge existing and new images
+            $allImages = array_merge($existingImages, $newImages);
+            $data['image'] = implode(',', $allImages); // Save as comma-separated string
+        } else {
+            // If no new images uploaded, retain existing ones
+            $data['image'] = implode(',', $existingImages);
         }
 
-        $product->update($productData);
+        // Update the product
+        $product->update($data);
 
-        return redirect()->route('product.index')->with('success', 'product item successfully updated');
+        // Redirect with success message
+        return redirect()->route('product.index')->with('success', 'Product updated successfully.');
     }
+
 
 
     public function delete( $product)

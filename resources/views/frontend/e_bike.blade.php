@@ -3,7 +3,7 @@
 <main class="container mx-auto py-10">
 
     <div class="py-4">
-        <h1 class="text-2xl font-medium ">E-Bikes</h1>
+        <h1 class="text-2xl font-medium ">{{ $categroy->category_name }}</h1>
     </div>
 
     <div class="flex flex-wrap justify-between items-center mb-6 space-x-4">
@@ -38,7 +38,7 @@
             </select>
         </div>
     </div>
-    
+
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 m-4 gap-6">
         <!-- Example Product Card -->

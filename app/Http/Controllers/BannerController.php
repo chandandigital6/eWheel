@@ -26,10 +26,12 @@ class BannerController extends Controller
 
     public function store(BannerRequest $request){
         $banner=Banner::create($request->all());
+       if($request->hasFile('image')){
         $image = $request->file('image')->store('public/banner');
 
         $banner->image = str_replace('public/', '', $image);
         $banner->save();
+       }
         return redirect()->route('banner.index')->with('success', 'Banner  created successfully.');
     }
 

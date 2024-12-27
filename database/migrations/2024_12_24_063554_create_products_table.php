@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('long_description')->nullable();
             $table->string('qty')->nullable();
             $table->string('price')->nullable();
-            $table->string('category_name')->nullable();
+            $table->text('accessories')->nullable();
             $table->string('f_1')->nullable();
             $table->string('f_2')->nullable();
             $table->string('f_3')->nullable();
@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('f_5')->nullable();
             $table->string('f_6')->nullable();
             $table->text('image')->nullable();
+            $table->foreignId('product_category_id')->nullable()->constrained(table: 'product_categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
