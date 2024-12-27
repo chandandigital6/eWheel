@@ -9,6 +9,7 @@ use App\Models\MissionVision;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductCategoryTitle;
+use App\Models\Retail;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
@@ -25,6 +26,7 @@ class HomeController extends Controller
        $testimonials=Testimonial::all();
        $contacts=Contact::all();
        $productTitle=MissionVision::all();
+
         return view('frontend.index', compact('banners', 'aboutUs', 'productCategoryTitle', 'productCategories','products','testimonials','contacts','productTitle'));
     }
 
@@ -53,37 +55,15 @@ public function productdetail($id)
 }
 
 
-
-    public function e_bike()
-    {
-        return view('frontend.e_bike');
-    }
-
-    public function e_scooter()
-    {
-        return view('frontend.e_scooter');
-    }
-    public function e_unicycle()
-    {
-        return view('frontend.e_unicycle');
-    }
-
-    public function e_wheelchair()
-    {
-        return view('frontend.e_wheelchair');
-    }
-
-    public function accessories()
-    {
-        return view('frontend.accessories');
-    }
     public function retail()
     {
-        return view('frontend.retail');
+        $retails=Retail::all();
+        return view('frontend.retail',compact('retails'));
     }
     public function contact()
     {
-        return view('frontend.contact');
+        $contacts=Contact::all();
+        return view('frontend.contact',compact('contacts'));
     }
 
 

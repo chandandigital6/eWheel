@@ -1,9 +1,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
-        <img src="{{ asset('asset/img/LITHO_POWER.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        <img src="{{ asset('asset/image/eWheels-logo-opt.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
-        <span class="brand-text font-weight-light">lithopowerr </span>
+        <span class="brand-text font-weight-light">eberries </span>
     </a>
 
     <!-- Sidebar -->
@@ -101,7 +101,14 @@
                         </p>
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a href="{{ route('retails.index') }}" class="nav-link">
+                        <i class="nav-icon 	fa fa-fax"></i>
+                        <p>
+                            Retials
+                        </p>
+                    </a>
+                </li>
 
 
                 <li class="nav-item">

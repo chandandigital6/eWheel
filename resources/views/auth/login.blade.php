@@ -56,7 +56,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>litho</b>powerr</a>
+        <a href="#"><b>eberries</b></a>
     </div>
     <div class="card login-card-body">
         <p class="login-box-msg">Sign in to start your session</p>

@@ -3,7 +3,7 @@
         <div class="flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0">
             <!-- Logo and Contact -->
             <div class="text-center lg:text-left space-y-4">
-                <img src="{{asset('assets/image/eWheels-logo-opt.png')}}" alt="eWheels Logo" class="h-10 mx-auto lg:mx-0">
+                <img src="{{asset('asset/image/eWheels-logo-opt.png')}}" alt="eWheels Logo" class="h-10 mx-auto lg:mx-0">
                 <p class="text-lg font-medium">eWheels Thailand Ratchada</p>
                 <p>
                     <span class="font-semibold">Line ID:</span> @ew01<br>
