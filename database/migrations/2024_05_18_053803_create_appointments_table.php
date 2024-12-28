@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-
             $table->string('name');
             $table->string('email')->nullable();
             $table->string('number');
+            $table->string('product_name');
+            $table->string(column: 'book_date')->nullable();
             $table->text('msg')->nullable();
-
             $table->timestamps();
         });
     }

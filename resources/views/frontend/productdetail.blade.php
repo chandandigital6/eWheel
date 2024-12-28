@@ -51,7 +51,7 @@
                 <div class="title mb-6">
                     <h1 class="text-3xl font-bold text-gray-900">{{ $product->title }}</h1>
                     <span class="text-sm text-gray-600">{{ $product->sub_title }}</span> <br>
-                    <span class="text-sm text-gray-600">SKU Number: {{ $product->sku_number   }}</span>
+                    <span class="text-sm text-gray-600">SKU Number: {{ $product->sku_number }}</span>
                 </div>
                 <div class="price mb-6">
                     <span class="text-2xl font-semibold text-gray-900">€ {{ $product->price }}</span>
@@ -72,7 +72,7 @@
                 <div class="description mb-6">
                     <h3 class="text-lg font-semibold text-gray-800">Short Description</h3>
                     <p class="text-gray-700">
-                       {!! $product->short_description !!}
+                        {!! $product->short_description !!}
                     </p>
                 </div>
                 <div class="description mb-6">
@@ -134,72 +134,83 @@
 
                         <h2 class="text-2xl font-semibold text-gray-700 mb-4">Book Your E-Wheel</h2>
 
-                        <form class="space-y-4">
+                        <form action="{{ route('appointment.store') }}" method="POST">
+                            @csrf
+
                             <!-- Full Name -->
-                            <div>
-                                <label for="fullName" class="block text-sm font-medium text-gray-600">
-                                    Full Name
-                                </label>
-                                <input type="text" id="fullName" placeholder="Enter your full name"
-                                    class="mt-1 block w-full px-4 py-2 border border-[#75CDD8] rounded-md shadow-sm focus:ring-[#75CDD8] focus:border-[#75CDD8]"
-                                    required />
+                            <div class="mb-4">
+                                <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                                <input type="text" id="name" name="name" value="{{ old('name') }}" required
+                                    class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                @error('name')
+                                    <small class="text-red-600">{{ $message }}</small>
+                                @enderror
                             </div>
 
                             <!-- Email Address -->
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-600">
-                                    Email Address
-                                </label>
-                                <input type="email" id="email" placeholder="Enter your email"
-                                    class="mt-1 block w-full px-4 py-2 border border-[#75CDD8] rounded-md shadow-sm focus:ring-[#75CDD8] focus:border-[#75CDD8]"
-                                    required />
+                            <div class="mb-4">
+                                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                <input type="email" id="email" name="email" value="{{ old('email') }}" required
+                                    class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                @error('email')
+                                    <small class="text-red-600">{{ $message }}</small>
+                                @enderror
                             </div>
 
                             <!-- Phone Number -->
-                            <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-600">
-                                    Phone Number
-                                </label>
-                                <input type="tel" id="phone" placeholder="Enter your phone number"
-                                    class="mt-1 block w-full px-4 py-2 border border-[#75CDD8] rounded-md shadow-sm focus:ring-[#75CDD8] focus:border-[#75CDD8]"
-                                    required />
+                            <div class="mb-4">
+                                <label for="number" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                <input type="text" id="number" name="number" value="{{ old('number') }}" required
+                                    class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                @error('number')
+                                    <small class="text-red-600">{{ $message }}</small>
+                                @enderror
                             </div>
 
-                            <!-- Select Model -->
-                            <div>
-                                <label for="model" class="block text-sm font-medium text-gray-600">
-                                    Select Model
-                                </label>
-                                <select id="model"
-                                    class="mt-1 block w-full px-4 py-2 border border-[#75CDD8] rounded-md shadow-sm focus:ring-[#75CDD8] focus:border-[#75CDD8]"
-                                    required>
-                                    <option value="">Select an option</option>
-                                    <option value="basic">Basic Model</option>
-                                    <option value="premium">Premium Model</option>
-                                    <option value="pro">Pro Model</option>
+                            <!-- Select Product -->
+                            <div class="mb-4">
+                                <label for="product_name" class="block text-sm font-medium text-gray-700">Select Product</label>
+                                <select id="product_name" name="product_name" required
+                                    class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="" disabled selected>Select a product</option>
+                                    <option value="e-scooter" {{ old('product_name') == 'e-scooter' ? 'selected' : '' }}>
+                                        E-Scooter</option>
+                                    <option value="e-unicycle" {{ old('product_name') == 'e-unicycle' ? 'selected' : '' }}>
+                                        E-Unicycle</option>
+                                    <option value="bike" {{ old('product_name') == 'bike' ? 'selected' : '' }}>Bike</option>
                                 </select>
+                                @error('product_name')
+                                    <small class="text-red-600">{{ $message }}</small>
+                                @enderror
                             </div>
 
                             <!-- Booking Date -->
-                            <div>
-                                <label for="date" class="block text-sm font-medium text-gray-600">
-                                    Booking Date
-                                </label>
-                                <input type="date" id="date"
-                                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#75CDD8] focus:border-[#75CDD8]"
-                                    required />
+                            <div class="mb-4">
+                                <label for="book_date" class="block text-sm font-medium text-gray-700">Booking Date</label>
+                                <input type="date" id="book_date" name="book_date" value="{{ old('book_date') }}" required
+                                    class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                @error('book_date')
+                                    <small class="text-red-600">{{ $message }}</small>
+                                @enderror
                             </div>
 
-                                    <!-- Message -->
-             <div class="mb-4">
-                <label for="text" class="block text-sm font-medium text-gray-700">Message</label>
-                <input type="message" id="text" name="text" placeholder="message" required class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-              </div>
+                            <!-- Message -->
+                            <div class="mb-4">
+                                <label for="msg" class="block text-sm font-medium text-gray-700">Message</label>
+                                <textarea id="msg" name="msg" placeholder="Write your message here..."
+                                    class="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">{{ old('msg') }}</textarea>
+                                @error('msg')
+                                    <small class="text-red-600">{{ $message }}</small>
+                                @enderror
+                            </div>
+
                             <!-- Submit Button -->
-                            <button type="submit"
-                                class="w-full px-6 py-3 border border-[#75CDD8] text-[#75CDD8] font-medium rounded-md shadow-md  transition">
-                                Submit Booking
-                            </button>
+                            <div class="flex justify-center">
+                                <button type="submit"
+                                    class="bg-[#75CDD8] text-white py-2 px-4 rounded-md hover:bg-[#75CDD8] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                    Submit Booking
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -215,8 +226,7 @@
                     <div class="bg-white shadow rounded-lg overflow-hidden p-4 text-center min-w-[150px]">
                         <a href="{{ route('productdetail', $related->id) }}">
                             <img src="{{ asset('storage/' . explode(',', $related->image)[0]) }}"
-                                alt="{{ $related->title }}"
-                                class="w-24 h-24 object-cover rounded-lg mx-auto">
+                                alt="{{ $related->title }}" class="w-24 h-24 object-cover rounded-lg mx-auto">
                         </a>
                         <p class="text-gray-700 mt-2 font-medium">{{ $related->title }}</p>
                         <p class="text-gray-600 text-sm">{{ $related->price }} EUR</p>

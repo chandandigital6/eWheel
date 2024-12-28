@@ -105,6 +105,8 @@
             <li><strong>Name:</strong> {{ $appointment->name }}</li>
             <li><strong>Email:</strong> {{ $appointment->email }}</li>
             <li><strong>Phone Number:</strong> {{ $appointment->number }}</li>
+            <li><strong>ProductName:</strong> {{ $appointment->product_name }}</li>
+            <li><strong>Booking Date:</strong> {{ $appointment->book_date }}</li>
             <li><strong>Msg:</strong> {{ $appointment->msg }}</li>
 
         </ul>

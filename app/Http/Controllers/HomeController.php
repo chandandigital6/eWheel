@@ -67,4 +67,11 @@ public function productdetail($id)
     }
 
 
+    public function thankyou()
+    {
+
+        return view('frontend.thankyou');
+    }
+
+
 }
