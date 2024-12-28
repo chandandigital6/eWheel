@@ -115,7 +115,7 @@
 {{-- Product Section --}}
 <div class="container bg-[#F3F4F6] max-w-full">
     <!-- Header Section -->
-    @forelse ($productTitle as $proTitle)
+    @forelse ($productTitle->take(1) as $proTitle)
     <div class="text-center mb-16 ">
         <div class="flex items-center justify-center mb-4">
             <img src="{{ asset('asset/image/e-bike.png') }}" alt="E-Bike" class="w-20 h-20 rounded-full mr-4">

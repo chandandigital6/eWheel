@@ -19,6 +19,7 @@ use App\Http\Controllers\MissionVisionController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductCategoryTitleController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RetailController;
 use Illuminate\Support\Facades\Artisan;
 
 /*
@@ -33,11 +34,6 @@ use Illuminate\Support\Facades\Artisan;
 */
 // / Define routes using the HomeController
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/ebike', [HomeController::class, 'e_bike'])->name('ebike');
-Route::get('/e_scooter', [HomeController::class, 'e_scooter'])->name('e_scooter');
-Route::get('/e_unicycle',[HomeController::class,'e_unicycle'])->name('unicycle');
-Route::get('/e_wheelchair',[HomeController::class,'e_wheelchair'])->name('e_wheelchair');
-Route::get('/accessories',[HomeController::class, 'accessories'])->name('accessories');
 Route::get('/retail', [HomeController::class, 'retail'])->name('retail');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/productdetail/{product}', [HomeController::class, 'productdetail'])->name('productdetail');
@@ -100,6 +96,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('contact/delete/{contact}', [ContactController::class, 'delete'])->name('contact.delete');
     Route::get('contact/duplicate/{contact}', [ContactController::class, 'duplicate'])->name('contact.duplicate');
     Route::post('contact/update/{contact}', [ContactController::class, 'update'])->name('contact.update');
+
+
+
+    // retial
+
+
+    Route::get('retails/index', [RetailController::class, 'index'])->name('retails.index');
+    Route::get('retails/create', [RetailController::class, 'create'])->name('retails.create');
+    Route::post('retails/store', [RetailController::class, 'store'])->name('retails.store');
+    Route::get('retails/edit/{retails}', [RetailController::class, 'edit'])->name('retails.edit');
+    Route::get('retails/delete/{retails}', [RetailController::class, 'delete'])->name('retails.delete');
+    Route::get('retails/duplicate/{retails}', [RetailController::class, 'duplicate'])->name('retails.duplicate');
+    Route::post('retails/update/{retails}', [RetailController::class, 'update'])->name('retails.update');
 
 
     //missionVision

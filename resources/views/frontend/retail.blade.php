@@ -30,66 +30,20 @@
 
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:mx-24 mb-4 m-4">
+    @forelse ($retails as $retail)
     <div class="border p-4 rounded shadow">
-        <h3 class="text-lg font-semibold">E-Wheels Alnabru</h3>
-        <p>Professor Birkelands vei 34 B, 1081 Oslo</p>
-        <a href="https://www.e-wheels.no" class="text-blue-600 hover:underline">www.e-wheels.no</a>
-    </div>
-    <div class="border p-4 rounded shadow">
-        <h3 class="text-lg font-semibold">E-Wheels Bergen</h3>
-        <p>Myrdalsvegen 22, 5131 Nyborg</p>
-        <a href="https://www.e-wheels.no" class="text-blue-600 hover:underline">www.e-wheels.no</a>
-    </div>
-    <div class="border p-4 rounded shadow">
-        <h3 class="text-lg font-semibold">E-Wheels Göteborg</h3>
-        <p>Datavägen 31, 436 32 Askim, Sverige</p>
-        <a href="https://www.ehwheels.se" class="text-blue-600 hover:underline">www.ehwheels.se</a>
-    </div>
-    <div class="border p-4 rounded shadow">
-        <h3 class="text-lg font-semibold">E-Wheels Lugano</h3>
-        <p>Corso Elvezia 1, Lugano, Sveits</p>
-        <a href="https://www.ehwheels.ch" class="text-blue-600 hover:underline">www.ehwheels.ch</a>
-    </div>
-    <div class="border p-4 rounded shadow">
-        <h3 class="text-lg font-semibold">E-Wheels Oslo Sentrum</h3>
-        <p>Akersgata 18, 0158 Oslo, Norge</p>
-        <a href="https://www.e-wheels.no" class="text-blue-600 hover:underline">www.e-wheels.no</a>
-    </div>
-    <div class="border p-4 rounded shadow">
-        <h3 class="text-lg font-semibold">E-Wheels Oslo Sentrum</h3>
-        <p>Akersgata 18, 0158 Oslo, Norge</p>
-        <a href="https://www.e-wheels.no" class="text-blue-600 hover:underline">www.e-wheels.no</a>
-    </div>
-    <div class="border p-4 rounded shadow">
-        <h3 class="text-lg font-semibold">E-Wheels Lugano</h3>
-        <p>Corso Elvezia 1, Lugano, Sveits</p>
-        <a href="https://www.ehwheels.ch" class="text-blue-600 hover:underline">www.ehwheels.ch</a>
-    </div>
-    <div class="border p-4 rounded shadow">
-        <h3 class="text-lg font-semibold">E-Wheels Oslo Sentrum</h3>
-        <p>Akersgata 18, 0158 Oslo, Norge</p>
-        <a href="https://www.e-wheels.no" class="text-blue-600 hover:underline">www.e-wheels.no</a>
-    </div>
-    <div class="border p-4 rounded shadow">
-        <h3 class="text-lg font-semibold">E-Wheels Lugano</h3>
-        <p>Corso Elvezia 1, Lugano, Sveits</p>
-        <a href="https://www.ehwheels.ch" class="text-blue-600 hover:underline">www.ehwheels.ch</a>
-    </div>
-    <div class="border p-4 rounded shadow">
-        <h3 class="text-lg font-semibold">E-Wheels Oslo Sentrum</h3>
-        <p>Akersgata 18, 0158 Oslo, Norge</p>
-        <a href="https://www.e-wheels.no" class="text-blue-600 hover:underline">www.e-wheels.no</a>
-    </div>
-    <div class="border p-4 rounded shadow">
-        <h3 class="text-lg font-semibold">E-Wheels Lugano</h3>
-        <p>Corso Elvezia 1, Lugano, Sveits</p>
-        <a href="https://www.ehwheels.ch" class="text-blue-600 hover:underline">www.ehwheels.ch</a>
-    </div>
-    <div class="border p-4 rounded shadow">
-        <h3 class="text-lg font-semibold">E-Wheels Oslo Sentrum</h3>
-        <p>Akersgata 18, 0158 Oslo, Norge</p>
-        <a href="https://www.e-wheels.no" class="text-blue-600 hover:underline">www.e-wheels.no</a>
-    </div>
+        <h3 class="text-lg font-semibold">{{ $retail->title }}</h3>
+        <p>{{ $retail->sub_title }}</p>
+        <a href="{{ $retail->website_url }}" class="text-blue-600 hover:underline">{{ $retail->website_url }}</a>
+    </div>    
+    @empty
+        no record 
+    @endforelse
+    
+    
+   
+    
+   
 
 </div>    
 @endsection
