@@ -102,6 +102,15 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="{{ route('logo.add') }}" class="nav-link">
+                        <i class="nav-icon 	fa fa-fax"></i>
+                        <p>
+                            Logo
+                        </p>
+                    </a>
+                </li>
+
 
 
                 <li class="nav-item">

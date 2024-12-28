@@ -4,6 +4,8 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\LogoController;
+
 
 
 use App\Http\Controllers\SeoController;
@@ -200,6 +202,18 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 });
+
+// Grouping all logo routes under a single prefix
+Route::prefix('logo')->name('logo.')->group(function () {
+    Route::get('/', [LogoController::class, 'index'])->name('index'); // List all logos
+    Route::get('/add', [LogoController::class, 'add'])->name('add'); // Form to create a new logo
+    Route::post('/', [LogoController::class, 'store'])->name('store'); // Store new logo
+    Route::get('/{id}/edit', [LogoController::class, 'edit'])->name('edit'); // Form to edit a logo
+    Route::put('/{id}', [LogoController::class, 'update'])->name('update'); // Update existing logo
+    
+    Route::delete('/{id}', [LogoController::class, 'destroy'])->name('destroy'); // Delete a logo
+});
+
 
 
 
